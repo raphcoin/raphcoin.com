@@ -201,7 +201,7 @@ class Game extends React.Component {
                 }}
             />
             <TransactButton
-                content="But golden mine"
+                content="Buy golden mine"
                 icon='paw'
                 tx={{
                     sender: runtime.indices.tryIndex(this.account),
