@@ -1,14 +1,22 @@
-# Setup
+# raphcoin
 
-* Install dependencies and run the app
+> Raphcoin website
 
-```
-yarn install;
-yarn run dev;
+## Build Setup
+
+``` bash
+# install dependencies
+$ yarn install
+
+# serve with hot reload at localhost:3000
+$ yarn dev
+
+# build for production and launch server
+$ yarn build
+$ yarn start
+
+# generate static project
+$ yarn generate
 ```
 
-* Open the app in your browser at http://localhost:8000
-
-```
-open -a "Google Chrome" http://localhost:8000
-```
+For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
