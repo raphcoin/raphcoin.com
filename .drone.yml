@@ -10,8 +10,6 @@ steps:
 - name: publish
   image: plugins/gh-pages
   settings:
-    username:
-      from_secret: GITHUB_USERNAME
-    password:
-      from_secret: GITHUB_PASSWORD
+    ssh_key:
+      from_secret: GITHUB_SSH_KEY
     pages_directory: public/
