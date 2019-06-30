@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@nuxtjs/pwa": "^2.6.0",
+    "@polkadot/api": "^0.80",
+    "@polkadot/types": "^0.80",
     "nuxt": "^2.0.0",
     "phaser": "^3.18.1"
   },

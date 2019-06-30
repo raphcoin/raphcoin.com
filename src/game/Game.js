@@ -46,7 +46,7 @@ class Scene extends Phaser.Scene {
 
         var tile = this.add.image(centerX + tx, centerY + ty, "mine", id);
 
-        //tile.depth = centerY + ty;
+        tile.depth = centerY + ty;
 
         i++;
       }
