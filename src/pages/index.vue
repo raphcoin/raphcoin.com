@@ -2,20 +2,9 @@
   <div class="container">
     <div>
       <h1 class="title">Raphcoin website</h1>
-      <game />
     </div>
   </div>
 </template>
-
-<script>
-import Game from "~/components/Game";
-
-export default {
-  components: {
-    Game
-  }
-};
-</script>
 
 <style>
 .container {
