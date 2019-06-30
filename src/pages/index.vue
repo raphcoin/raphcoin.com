@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div>
-      <h1 class="title">Raphcoin</h1>
-      <game/>
+      <h1 class="title">Raphcoin website</h1>
+      <game />
     </div>
   </div>
 </template>
