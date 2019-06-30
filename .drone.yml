@@ -3,7 +3,15 @@ name: default
 
 steps:
 - name: build
-  image: node
+  image: node:10-alpine
   commands:
   - yarn install
   - yarn generate
+- name: publish
+  image: plugins/gh-pages
+  settings:
+    username:
+      from_secret: GITHUB_USERNAME
+    password:
+      from_secret: GITHUB_PASSWORD
+    pages_directory: public/
