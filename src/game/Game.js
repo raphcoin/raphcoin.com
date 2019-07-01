@@ -14,8 +14,8 @@ var tileHeightHalf;
 
 class Scene extends Phaser.Scene {
   preload() {
-    this.load.json("map", "map.json");
-    this.load.image("mine", "mine.png");
+    this.load.json("map", "~/assets/map.json");
+    this.load.image("mine", "~/assets/mine.png");
   }
 
   create() {
