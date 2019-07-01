@@ -15,16 +15,8 @@ export default {
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
   loading: { color: "#fff" },
-  css: [],
-  plugins: [],
   modules: ["@nuxtjs/pwa"],
-  router: {
-    base: "/"
-  },
   generate: {
     dir: "public"
-  },
-  build: {
-    extend(config, ctx) {}
   }
 };
