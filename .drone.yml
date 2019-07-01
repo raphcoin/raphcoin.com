@@ -6,7 +6,7 @@ steps:
   image: node:10-alpine
   commands:
   - yarn install
-  - yarn generate
+  - CI_PAGES_URL=https://raphcoin.com yarn generate
 - name: publish
   image: plugins/gh-pages
   settings:
