@@ -60,26 +60,23 @@ class Scene extends Phaser.Scene {
   }
 
   onKeydown(event) {
+    const camera = this.cameras.main;
     const key = event.key;
-    const cords = {
-      x: 0,
-      y: 0
-    };
     switch (key) {
       case "ArrowLeft":
-        cords.x -= 5;
+        camera.x -= 10;
         break;
       case "ArrowRight":
-        cords.x += 5;
+        camera.x += 10;
         break;
       case "ArrowUp":
-        cords.y -= 5;
+        camera.y -= 10;
         break;
       case "ArrowDown":
-        cords.y += 5;
+        camera.y += 10;
         break;
     }
-    this.cameras.main = { ...this.cameras.main, ...cords };
+    camera.setPosition(camera.x, camera.y);
   }
 }
 
