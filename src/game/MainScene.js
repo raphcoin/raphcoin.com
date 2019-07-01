@@ -46,7 +46,8 @@ class MainScene extends Phaser.Scene {
     }
 
     this.cameras.main.setBounds(0, 0, 1000, 1000);
-    this.cameras.main.setZoom(0.4);
+    this.cameras.main.setZoom(0.3);
+    this.cameras.main.setPosition(-50, -200);
     // this.cameras.main.setSize(1024, 1024);
   }
 

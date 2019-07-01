@@ -1,34 +1,24 @@
 {
-    "height": 3,
-    "layers": [
-        {
-            "data": [
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0
-            ],
-            "height": 3,
-            "name": "Tile Layer 1",
-            "opacity": 1,
-            "type": "tilelayer",
-            "visible": true,
-            "width": 3,
-            "x": 0,
-            "y": 0
-        }
-    ],
-    "nextobjectid": 1,
-    "orientation": "isometric",
-    "properties": {},
-    "renderorder": "right-down",
-    "tileheight": 1024,
-    "tilewidth": 2048,
-    "version": 1,
-    "width": 3
+  "version": 1,
+  "height": 3,
+  "width": 3,
+  "layers": [
+    {
+      "data": [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      "height": 3,
+      "name": "Tile Layer 1",
+      "opacity": 1,
+      "type": "tilelayer",
+      "visible": true,
+      "width": 3,
+      "x": 0,
+      "y": 0
+    }
+  ],
+  "nextobjectid": 1,
+  "orientation": "isometric",
+  "properties": {},
+  "renderorder": "right-down",
+  "tileheight": 1180,
+  "tilewidth": 2048
 }
