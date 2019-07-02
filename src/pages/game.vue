@@ -4,21 +4,19 @@
   </div>
 </template>
 
-<script>
-import Game from "~/components/Game";
+<script lang="ts">
+import Vue from "vue";
+import Game from "~/components/Game.vue";
 
-export default {
+export default Vue.extend({
   components: {
     Game
   }
-};
+});
 </script>
 
 <style scoped>
-* {
-  /* Todo: Overload scroll */
-  overflow-y: hidden;
-}
+/* Todo: Overload scroll */
 
 #game_container {
   margin: 0;

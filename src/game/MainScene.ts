@@ -1,10 +1,6 @@
 import Phaser from "phaser";
 
 class MainScene extends Phaser.Scene {
-  constructor() {
-    super();
-  }
-
   preload() {
     this.input.keyboard.on("keydown", this.onKeydown.bind(this));
 
@@ -51,7 +47,7 @@ class MainScene extends Phaser.Scene {
     // this.cameras.main.setSize(1024, 1024);
   }
 
-  onKeydown(event) {
+  onKeydown(event: KeyboardEvent) {
     const camera = this.cameras.main;
     const key = event.key;
     switch (key) {

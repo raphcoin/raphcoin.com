@@ -1,4 +1,6 @@
-export default {
+import NuxtConfiguration from "@nuxt/config";
+
+const config: NuxtConfiguration = {
   mode: "spa",
   srcDir: "src/",
   head: {
@@ -20,3 +22,5 @@ export default {
     dir: "public"
   }
 };
+
+export default config;

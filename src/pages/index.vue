@@ -7,20 +7,20 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { ApiPromise, WsProvider } from "@polkadot/api";
 import { Enum, Struct } from "@polkadot/types/codec";
 import { getTypeRegistry, u32, u64, Vector, Balance } from "@polkadot/types";
 
 class ResourceType extends Enum {
-  constructor(value) {
+  constructor(value?: any) {
     super(["Gold"], value);
   }
 }
 
 class Terrain extends Enum {
   constructor(value) {
-    super(["CleanTerrain"], value);
+    super(["CleanTerrain", "GoldVein"], value);
   }
 }
 
@@ -77,8 +77,8 @@ export default {
       try {
         const provider = new WsProvider("ws://127.0.0.1:9944");
         const api = await ApiPromise.create(provider);
-        debugger;
-        console.log(await api.query.gameModule.cities(Alice));
+        const res = await api.query.gameModule.cities(Alice);
+        console.log(res);
       } catch (err) {
         console.error(err);
       }

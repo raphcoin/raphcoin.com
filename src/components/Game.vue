@@ -2,23 +2,18 @@
   <div id="game_container"></div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
 import Game from "~/game/Game";
 
-export default {
-  data() {
-    return {
-      game: null
-    };
+export default Vue.extend({
+  data(): {
+    game?: Game;
+  } {
+    return {};
   },
   mounted() {
     this.game = new Game();
   }
-};
+});
 </script>
-
-<style scoped>
-#game {
-  padding: 10px;
-}
-</style>
