@@ -12,19 +12,35 @@ import { ApiPromise, WsProvider } from "@polkadot/api";
 import { Enum, Struct } from "@polkadot/types/codec";
 import { getTypeRegistry, u32, u64, Vector, Balance } from "@polkadot/types";
 
-class ResourceType extends Enum {
+export class ResourceType extends Enum {
   constructor(value?: any) {
     super(["Gold"], value);
   }
 }
 
-class Terrain extends Enum {
+export class Terrain extends Enum {
   constructor(value?: any) {
     super(["CleanTerrain", "GoldVein"], value);
   }
 }
 
 export class Resource extends Struct {
+  constructor(value) {
+    super(
+      {
+        level: u32,
+        time: u64,
+        accrual: Balance,
+        rate: u32,
+        resource_type: ResourceType,
+        resource_amount: Balance
+      },
+      value
+    );
+  }
+}
+
+export class ResourceBuilding extends Struct {
   constructor(value) {
     super(
       {
@@ -60,12 +76,13 @@ try {
   const typeRegistry = getTypeRegistry();
   typeRegistry.register({
     ResourceType,
+    ResourceBuilding,
     Terrain,
     Resource,
     City
   });
 } catch (err) {
-  console.error("Failed to register custom types of blogs module", err);
+  console.error("Failed to register custom types", err);
 }
 
 const Alice = "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY";
@@ -81,7 +98,9 @@ export default {
       try {
         const provider = new WsProvider("ws://127.0.0.1:9944");
         const api = await ApiPromise.create(provider);
-        const res = await api.query.gameModule.cities(Alice);
+        console.log(api.query);
+        // const res = await api.query.game.resources(Alice);
+        const res = await api.query.gameModule.testEnum(Alice);
         console.log(res);
       } catch (err) {
         console.error(err);
