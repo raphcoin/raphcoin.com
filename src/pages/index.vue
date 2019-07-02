@@ -19,7 +19,7 @@ class ResourceType extends Enum {
 }
 
 class Terrain extends Enum {
-  constructor(value) {
+  constructor(value?: any) {
     super(["CleanTerrain", "GoldVein"], value);
   }
 }
@@ -40,12 +40,16 @@ export class Resource extends Struct {
   }
 }
 
+export class VecResources extends Vector.with(Resource) {}
+export class VecTerrain extends Vector.with(Terrain) {}
+export class VecVecTerrain extends Vector.with(VecTerrain) {}
+
 export class City extends Struct {
   constructor(value) {
     super(
       {
-        grid: Vector.with(Vector.with(Terrain)),
-        resources: Vector.with(Resource)
+        grid: VecVecTerrain,
+        resources: VecResources
       },
       value
     );

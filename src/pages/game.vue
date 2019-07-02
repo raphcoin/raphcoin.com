@@ -16,7 +16,10 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-/* Todo: Overload scroll */
+body {
+  background: #eeeeee;
+  /* Todo: Overload scroll */
+}
 
 #game_container {
   margin: 0;

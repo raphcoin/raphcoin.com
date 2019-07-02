@@ -13,9 +13,15 @@ class MainScene extends Phaser.Scene {
     this.addTiles();
 
     // Todo: Fix camera position
-    this.cameras.main.setBounds(0, 0, window.innerWidth, window.innerHeight);
+    this.cameras.main.setPosition(0, 0);
+    this.cameras.main.setBounds(
+      window.innerWidth / -2,
+      0,
+      window.innerWidth,
+      window.innerHeight
+    );
     this.cameras.main.setZoom(0.2);
-    this.cameras.main.setPosition(200, 0);
+    this.cameras.main.setBackgroundColor("#eee");
   }
 
   addTiles() {
