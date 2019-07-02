@@ -1,14 +1,24 @@
 import Phaser from "phaser";
 
 class MainScene extends Phaser.Scene {
-  preload() {
-    this.input.keyboard.on("keydown", this.onKeydown.bind(this));
-
-    this.load.json("map", "/assets/map.json");
-    this.load.image("mine", "/assets/mine.png");
+  constructor() {
+    super({
+      key: "MainScene"
+    });
   }
 
   create() {
+    this.input.keyboard.on("keydown", this.onKeydown.bind(this));
+
+    this.addTiles();
+
+    // Todo: Fix camera position
+    this.cameras.main.setBounds(0, 0, window.innerWidth, window.innerHeight);
+    this.cameras.main.setZoom(0.2);
+    this.cameras.main.setPosition(200, 0);
+  }
+
+  addTiles() {
     const data = this.cache.json.get("map");
 
     const tilewidth = data.tilewidth;
@@ -36,11 +46,6 @@ class MainScene extends Phaser.Scene {
         tile.depth = centerY + ty;
       }
     }
-
-    // Todo: Fix camera position
-    this.cameras.main.setBounds(0, 0, window.innerWidth, window.innerHeight);
-    this.cameras.main.setZoom(0.2);
-    this.cameras.main.setPosition(200, 0);
   }
 
   onKeydown(event: KeyboardEvent) {
