@@ -21,7 +21,7 @@ class MainScene extends Phaser.Scene {
       window.innerHeight
     );
     this.cameras.main.setZoom(0.2);
-    this.cameras.main.setBackgroundColor("#eee");
+    this.cameras.main.setBackgroundColor("#d8d8d8");
   }
 
   addTiles() {
@@ -48,7 +48,12 @@ class MainScene extends Phaser.Scene {
         let tx = (x - y) * tileWidthHalf;
         let ty = (x + y) * tileHeightHalf;
 
-        let tile = this.add.image(centerX + tx, centerY + ty - 600, "mine", id);
+        let tile = this.add.image(
+          centerX + tx,
+          centerY + ty - 600,
+          id === 0 ? "clean_terrain" : `mine-${id}`,
+          id
+        );
         tile.depth = centerY + ty;
       }
     }

@@ -78,7 +78,8 @@ export class BootScene extends Phaser.Scene {
     });
 
     this.load.json("map", "/assets/map.json");
-    this.load.image("mine", "/assets/mine.png");
+    this.load.image("mine-1", "/assets/mine-1.png");
+    this.load.image("clean_terrain", "/assets/clean_terrain.png");
   }
 }
 

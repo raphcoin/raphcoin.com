@@ -12,60 +12,86 @@ import { ApiPromise, WsProvider } from "@polkadot/api";
 import { Enum, Struct } from "@polkadot/types/codec";
 import { getTypeRegistry, u32, u64, Vector, Balance } from "@polkadot/types";
 
-export class ResourceType extends Enum {
-  constructor(value?: any) {
-    super(["Gold"], value);
-  }
-}
+// export class ResourceType extends Enum {
+//   constructor(value?: any) {
+//     super(["Gold"], value);
+//   }
+// }
 
-export class Terrain extends Enum {
-  constructor(value?: any) {
-    super(["CleanTerrain", "GoldVein"], value);
-  }
-}
+// export class Terrain extends Enum {
+//   constructor(value?: any) {
+//     super(["CleanTerrain", "GoldVein"], value);
+//   }
+// }
 
-export class Resource extends Struct {
-  constructor(value) {
-    super(
-      {
-        level: u32,
-        time: u64,
-        accrual: Balance,
-        rate: u32,
-        resource_type: ResourceType,
-        resource_amount: Balance
-      },
-      value
-    );
-  }
-}
+// export class Resource extends Struct {
+//   constructor(value) {
+//     super(
+//       {
+//         level: u32,
+//         time: u64,
+//         accrual: Balance,
+//         rate: u32,
+//         resource_type: ResourceType,
+//         resource_amount: Balance
+//       },
+//       value
+//     );
+//   }
+// }
 
-export class ResourceBuilding extends Struct {
-  constructor(value) {
-    super(
-      {
-        level: u32,
-        time: u64,
-        accrual: Balance,
-        rate: u32,
-        resource_type: ResourceType,
-        resource_amount: Balance
-      },
-      value
-    );
-  }
-}
+// export class ResourceBuilding extends Struct {
+//   constructor(value) {
+//     super(
+//       {
+//         level: u32,
+//         time: u64,
+//         accrual: Balance,
+//         rate: u32,
+//         resource_type: ResourceType,
+//         resource_amount: Balance
+//       },
+//       value
+//     );
+//   }
+// }
 
-export class VecResources extends Vector.with(Resource) {}
-export class VecTerrain extends Vector.with(Terrain) {}
-export class VecVecTerrain extends Vector.with(VecTerrain) {}
+// export class VecResources extends Vector.with(Resource) {}
+// export class VecTerrain extends Vector.with(Terrain) {}
+// export class VecVecTerrain extends Vector.with(VecTerrain) {}
+
+// export class City extends Struct {
+//   constructor(value) {
+//     super(
+//       {
+//         grid: VecVecTerrain,
+//         resources: VecResources
+//       },
+//       value
+//     );
+//   }
+// }
+
+// try {
+//   const typeRegistry = getTypeRegistry();
+//   typeRegistry.register({
+//     ResourceType,
+//     ResourceBuilding,
+//     Terrain,
+//     Resource,
+//     City
+//   });
+// } catch (err) {
+//   console.error("Failed to register custom types", err);
+// }
+
+export class VecU32 extends Vector.with(u32) {}
 
 export class City extends Struct {
   constructor(value) {
     super(
       {
-        grid: VecVecTerrain,
-        resources: VecResources
+        grid: VecU32
       },
       value
     );
@@ -74,13 +100,7 @@ export class City extends Struct {
 
 try {
   const typeRegistry = getTypeRegistry();
-  typeRegistry.register({
-    ResourceType,
-    ResourceBuilding,
-    Terrain,
-    Resource,
-    City
-  });
+  typeRegistry.register({ City });
 } catch (err) {
   console.error("Failed to register custom types", err);
 }
@@ -100,7 +120,7 @@ export default {
         const api = await ApiPromise.create(provider);
         console.log(api.query);
         // const res = await api.query.game.resources(Alice);
-        const res = await api.query.gameModule.testEnum(Alice);
+        const res = await api.query.game.cities(Alice);
         console.log(res);
       } catch (err) {
         console.error(err);
