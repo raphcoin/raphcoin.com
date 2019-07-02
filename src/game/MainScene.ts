@@ -25,45 +25,44 @@ class MainScene extends Phaser.Scene {
     const centerX = mapwidth * tileWidthHalf;
     const centerY = mapheight * tileHeightHalf;
 
-    let i = 0;
-    for (let y = 0; y < mapheight; y++) {
-      for (let x = 0; x < mapwidth; x++) {
-        const id = layer[i] - 1;
+    for (let i = 0, y = 0; y < mapheight; y++) {
+      for (let x = 0; x < mapwidth; x++, i++) {
+        const id = layer[i];
 
         let tx = (x - y) * tileWidthHalf;
         let ty = (x + y) * tileHeightHalf;
 
-        let tile = this.add.image(centerX + tx, centerY + ty, "mine", id);
-
+        let tile = this.add.image(centerX + tx, centerY + ty - 600, "mine", id);
         tile.depth = centerY + ty;
-
-        i++;
       }
     }
 
-    this.cameras.main.setBounds(0, 0, 1000, 1000);
-    this.cameras.main.setZoom(0.3);
-    this.cameras.main.setPosition(-50, -200);
-    // this.cameras.main.setSize(1024, 1024);
+    // Todo: Fix camera position
+    this.cameras.main.setBounds(0, 0, window.innerWidth, window.innerHeight);
+    this.cameras.main.setZoom(0.2);
+    this.cameras.main.setPosition(200, 0);
   }
 
   onKeydown(event: KeyboardEvent) {
     const camera = this.cameras.main;
     const key = event.key;
+
+    const STEP = 50;
     switch (key) {
       case "ArrowLeft":
-        camera.x -= 10;
+        camera.x -= STEP;
         break;
       case "ArrowRight":
-        camera.x += 10;
+        camera.x += STEP;
         break;
       case "ArrowUp":
-        camera.y -= 10;
+        camera.y -= STEP;
         break;
       case "ArrowDown":
-        camera.y += 10;
+        camera.y += STEP;
         break;
     }
+
     camera.setPosition(camera.x, camera.y);
   }
 }
