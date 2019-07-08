@@ -14,24 +14,24 @@ workbox.precaching.precacheAndRoute([
     "revision": "17f41b26d38787e50332d561cf8e8428"
   },
   {
+    "url": "/_nuxt/624db0ccb4324e08fdef.js",
+    "revision": "da57331a816af494c2d65c2c310a60a8"
+  },
+  {
     "url": "/_nuxt/69d54cfaaaf9a0c793f1.js",
     "revision": "c068c34ca4fec81fa731d09d2eef10de"
   },
   {
-    "url": "/_nuxt/7729b13b1eeb80bca4f6.js",
-    "revision": "ada327e920d34b745060c5c6a71abcb4"
-  },
-  {
-    "url": "/_nuxt/774e576d30bc03cbc899.js",
-    "revision": "4d034f09d179b829c360173501331965"
+    "url": "/_nuxt/710942225ec7ce22b626.js",
+    "revision": "00c85618cc7a34824ae401c61ff3660e"
   },
   {
     "url": "/_nuxt/7c44314b65aeb192da95.js",
     "revision": "b60715535efd44fc9a700ca3a0b83b84"
   },
   {
-    "url": "/_nuxt/f21a28189cdfd23beef4.js",
-    "revision": "30404cb334467b43b0e24cf57a274f4d"
+    "url": "/_nuxt/8c1dc01dbb7d3c21c339.js",
+    "revision": "c5eae143b93001f094e39af6b1e2e785"
   }
 ], {
   "cacheId": "raphcoin",
