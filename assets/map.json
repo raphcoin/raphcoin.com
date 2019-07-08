@@ -4,7 +4,7 @@
   "width": 3,
   "layers": [
     {
-      "data": [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      "data": [0, 0, 0, 0, 1, 0, 0, 0, 0],
       "height": 3,
       "name": "Tile Layer 1",
       "opacity": 1,
