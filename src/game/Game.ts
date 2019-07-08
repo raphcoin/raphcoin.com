@@ -5,10 +5,14 @@ import MainScene from "~/game/scenes/MainScene";
 
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.CANVAS,
-  parent: "game_container",
-  width: window.innerWidth,
-  height: window.innerHeight,
-  scene: [BootScene, MainScene]
+  scene: [BootScene, MainScene],
+  backgroundColor: "#d8d8d8",
+  scale: {
+    parent: "game_container",
+    mode: Phaser.Scale.NONE,
+    width: window.innerWidth,
+    height: window.innerHeight
+  }
 };
 
 class Game extends Phaser.Game {

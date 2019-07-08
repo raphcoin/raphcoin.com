@@ -13,15 +13,27 @@ class MainScene extends Phaser.Scene {
     this.addTiles();
 
     // Todo: Fix camera position
-    this.cameras.main.setPosition(0, 0);
-    this.cameras.main.setBounds(
-      window.innerWidth / -2,
-      0,
-      window.innerWidth,
-      window.innerHeight
-    );
+    this.cameras.main.setPosition(200, 0);
+    // this.cameras.main.setSize(2000, 2000);
+    this.cameras.main.setBounds(0, 0, window.innerWidth, window.innerHeight);
     this.cameras.main.setZoom(0.2);
     this.cameras.main.setBackgroundColor("#d8d8d8");
+
+    this.scale.on("resize", gameSize => {
+      const width = gameSize.width;
+      const height = gameSize.height;
+
+      this.cameras.resize(width, height);
+      console.log(width, height);
+    });
+
+    window.addEventListener(
+      "resize",
+      _event => {
+        this.scale.resize(window.innerWidth, window.innerHeight);
+      },
+      false
+    );
   }
 
   addTiles() {
@@ -48,7 +60,7 @@ class MainScene extends Phaser.Scene {
         let tx = (x - y) * tileWidthHalf;
         let ty = (x + y) * tileHeightHalf;
 
-        let tile = this.add.image(
+        let tile = this.add.sprite(
           centerX + tx,
           centerY + ty - 600,
           id === 0 ? "clean_terrain" : `mine-${id}`,

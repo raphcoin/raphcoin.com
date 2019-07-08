@@ -1,7 +1,5 @@
 <template>
-  <div class="game_container">
-    <game />
-  </div>
+  <game />
 </template>
 
 <script lang="ts">
@@ -18,13 +16,18 @@ export default Vue.extend({
 <style scoped>
 body {
   background: #eeeeee;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
   /* Todo: Overload scroll */
 }
 
 #game_container {
   margin: 0;
   padding: 0;
-  min-height: 100vh;
-  min-width: 100vw;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: red;
 }
 </style>
