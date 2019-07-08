@@ -18,6 +18,7 @@ const config: NuxtConfiguration = {
   },
   loading: { color: "#fff" },
   modules: ["@nuxtjs/pwa"],
+  plugins: ["~/plugins/types"],
   generate: {
     dir: "public"
   }

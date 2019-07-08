@@ -9,103 +9,9 @@
 
 <script lang="ts">
 import { ApiPromise, WsProvider } from "@polkadot/api";
-import { Enum, Struct } from "@polkadot/types/codec";
-import { getTypeRegistry, u32, u64, Vector, Balance } from "@polkadot/types";
+import * as testKeyring from "@polkadot/keyring/testing";
 
-// export class ResourceType extends Enum {
-//   constructor(value?: any) {
-//     super(["Gold"], value);
-//   }
-// }
-
-// export class Terrain extends Enum {
-//   constructor(value?: any) {
-//     super(["CleanTerrain", "GoldVein"], value);
-//   }
-// }
-
-// export class Resource extends Struct {
-//   constructor(value) {
-//     super(
-//       {
-//         level: u32,
-//         time: u64,
-//         accrual: Balance,
-//         rate: u32,
-//         resource_type: ResourceType,
-//         resource_amount: Balance
-//       },
-//       value
-//     );
-//   }
-// }
-
-// export class ResourceBuilding extends Struct {
-//   constructor(value) {
-//     super(
-//       {
-//         level: u32,
-//         time: u64,
-//         accrual: Balance,
-//         rate: u32,
-//         resource_type: ResourceType,
-//         resource_amount: Balance
-//       },
-//       value
-//     );
-//   }
-// }
-
-// export class VecResources extends Vector.with(Resource) {}
-// export class VecTerrain extends Vector.with(Terrain) {}
-// export class VecVecTerrain extends Vector.with(VecTerrain) {}
-
-// export class City extends Struct {
-//   constructor(value) {
-//     super(
-//       {
-//         grid: VecVecTerrain,
-//         resources: VecResources
-//       },
-//       value
-//     );
-//   }
-// }
-
-// try {
-//   const typeRegistry = getTypeRegistry();
-//   typeRegistry.register({
-//     ResourceType,
-//     ResourceBuilding,
-//     Terrain,
-//     Resource,
-//     City
-//   });
-// } catch (err) {
-//   console.error("Failed to register custom types", err);
-// }
-
-export class VecU32 extends Vector.with(u32) {}
-
-export class City extends Struct {
-  constructor(value) {
-    super(
-      {
-        grid: VecU32
-      },
-      value
-    );
-  }
-}
-
-try {
-  const typeRegistry = getTypeRegistry();
-  typeRegistry.register({ City });
-} catch (err) {
-  console.error("Failed to register custom types", err);
-}
-
-const Alice = "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY";
+const ALICE = "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY";
 
 export default {
   data() {
@@ -118,9 +24,25 @@ export default {
       try {
         const provider = new WsProvider("ws://127.0.0.1:9944");
         const api = await ApiPromise.create(provider);
-        console.log(api.query);
-        // const res = await api.query.game.resources(Alice);
-        const res = await api.query.game.cities(Alice);
+
+        // const keyring = testKeyring.default();
+        // const nonce: any = await api.query.system.accountNonce(ALICE);
+        // const alicePair = keyring.getPair(ALICE);
+
+        // await api.tx.game
+        //   .init()
+        //   .sign(alicePair, { nonce })
+        //   .send(({ events = [], status }) => {
+        //     console.log("Transaction status:", status.type);
+
+        //     if (status.isFinalized) {
+        //       console.log(
+        //         "Completed at block hash",
+        //         status.asFinalized.toHex()
+        //       );
+        //     }
+        //   });
+        const res = await api.query.game.cities(ALICE);
         console.log(res);
       } catch (err) {
         console.error(err);
